@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> React Elements</title>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    </head>
+
+    <body>
+        <!-- React Library & React DOM -->
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"> </script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"> </script>
+
+        
+        <!-- Target Containers -->
+         <div id="react-container-h1"></div>
+        <div id="react-container-button"></div>
+        <div id="react-container-h2"></div>
+        <div id="react-container-ingredients"></div>
+        <script>
+
+            const element = React.createElement("h1", null, "React Elements");
+            ReactDOM.render(element,document.getElementById("react-container-h1"));
+
+        </script>
+
+        <script>
+            const button = React.createElement(
+                "button",
+                {onClick: () => alert("Button Clicked")
+                },
+                "Click Me"
+            );
+            ReactDOM.render(button,document.getElementById("react-container-button"));
+        </script>
+
+        <script>
+            const elementH2 = React.createElement("h2", null, "Baked Salamon");
+            ReactDOM.render(elementH2,document.getElementById("react-container-h2"));
+        </script>
+
+        <script>
+            const item = [
+                "1 lb Salmon",
+                "1 cup Pine Nuts",
+                "2 cups Butter Lettuce",    
+                "1 Yellow Squash",
+                "1/2 cup Olive Oil",
+                "3 cloves of Garlic",
+            ];
+
+            const ingredients = React.createElement(
+                "ul",
+                {className: "ingredients"},
+                item.map((ingredient, i) =>
+                    React.createElement("li", {key: i}, ingredient)
+                )
+            );
+
+            ReactDOM.render(
+                ingredients,
+                document.getElementById("react-container-ingredients")
+            );
+        </script>
+
+    </body>
+</html>

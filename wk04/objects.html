@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title> Objects</title>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    </head>
+
+    <body>
+        <h1> JS Objects </h1>
+
+        <h2> First Object </h2>
+        <p id="demo1"></p>
+        <script>
+            //Create empty object
+            const person = {};
+            //Add properties to object
+            person.firstName = "Nate";
+            person.lastName = "Cloud";
+            person.age = "32";
+            person.hairColor = "brown";
+
+            document.getElementById("demo1").innerHTML = person.firstName + " " + person.lastName + " is " + person.age + " years old and has " + person.hairColor + " hair.";
+
+        </script>
+
+        <h2> Object Contructors </h2>
+        <p id="demo2"></p>
+        <script>
+            function Person(first, last, age, hair){
+                this.firstName = first;
+                this.lastName = last;
+                this.age = age;
+                this.hairColor = hair;
+            }
+
+            const myFather = new Person("Ben", "Cloud", 60, "grey");
+
+            document.getElementById("demo2").innerHTML = "My father is " + myFather.firstName + " " +
+            myFather.lastName + " and he is " + myFather.age + " years old and has " + myFather.hairColor + " hair.";
+        </script>
+        
+
+        <h2> Multiple Objects </h2>
+        <p id="demo3"></p>
+        <script>
+            function Person(first, last, age, hair){
+                this.firstName = first;
+                this.lastName = last;
+                this.age = age;
+                this.hairColor = hair;
+            }
+
+            const myDad = new Person("Ben", "Cloud", 60, "grey");
+            const myMom = new Person("Sue", "Cloud", 58, "blonde");
+
+            document.getElementById("demo3").innerHTML = "My father is " + myDad.firstName + " " + myDad.lastName +
+             " and he is " +myDad.age + " years old and has " + myDad.hairColor +
+             " hair. My mother is " + myMom.firstName + " " + myMom.lastName + " and she is " + myMom.age + " years old and has " +
+            myMom.hairColor + " hair."; 
+        </script>
+        
+    </body>
+</html>

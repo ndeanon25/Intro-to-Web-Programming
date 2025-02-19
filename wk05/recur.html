@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Functional JS</title>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    </head>
+
+    <body>
+        <h1> Recursion in JS</h1>
+
+            <h2> 1st Countdown</h2>
+            <p id="countdown"></p>
+            <script type="text/babel">
+                const countdown = (value, fn) => {
+                    fn(value);
+                    return (value > 0) ? countdown(value - 1, fn) : value; 
+                };
+
+                const displayElement = document.getElementById("countdown");
+                let output = "";
+
+                countdown(10, value => {
+                    output += value + "<br>";
+                });
+
+                displayElement.innerHTML = output;
+            </script>
+
+
+
+            <h2> 2nd Countdown</h2>
+            <p id="countdown2"></p>
+            <script type="text/babel">
+                const countdownElement = document.getElementById("countdown2");
+                const countdown2 = (value, fn, delay = 1000) => {
+                    fn(value);
+                    if (value > 0){
+                        setTimeout(() => countdown2(value - 1, fn, delay), delay);
+                    }
+                };
+
+                const logToBrowser = value => {
+                    countdownElement.innerHTML = value; 
+                };
+
+                countdown2(10, logToBrowser);
+            </script>
+    </body>
+</html>
