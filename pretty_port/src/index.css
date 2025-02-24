@@ -3,13 +3,12 @@
 html, body {
   margin: 0;
   padding: 0;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   background: #0a0a0a;
   color: #f3f4f6;
-
 }
 
-@layer utilities{
+@layer utilities {
   @keyframes loading {
     0% {
       transform: translateX(-100%);
@@ -20,6 +19,7 @@ html, body {
   }
 
   .animate-loading-bar {
-    animation: loading 1s ease infinite;
+    animation: loading 0.8s ease infinite;
   }
 }
+
