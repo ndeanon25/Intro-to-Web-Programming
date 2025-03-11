@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+
+    <!-- React and ReactDOM -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Material-UI -->
+    <script src="https://unpkg.com/@mui/material@5.15.10/umd/material-ui.production.min.js"></script>
+
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <!-- CSS -->
+     <link rel="stylesheet" href="css/default.css">
+
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const {AppBar, Toolbar, Typography, Button, Container, Box, CssBaseline, Grid, Card, CardContent, CardActions  } = MaterialUI;
+
+
+    //Navbar Component
+
+    function Navbar() {
+        return (
+            <AppBar position="static">
+                <Toolbar>
+                    <Typography variant="nav1" sx={{ flexGrow:1 }}>
+                        Portfolio
+                    </Typography>
+                    <Button color="inherit">Home</Button>
+                    <Button color="inherit">About</Button>
+                    <Button color="inherit">Contact</Button>
+                </Toolbar>
+            </AppBar>
+        );
+    }
+
+    //Hero Section Component
+    function HeroSection() {
+        return ( 
+            <Box className="hero-section" textAlign="center">
+                <Typography variant="h1" gutterBottom>
+                    Welcome to my Portfolio
+                </Typography>
+                <Typography variant="body1" color="textSecondary" gutterBottom>
+                    This is my portfolio website. I am a Computer Science student at Evergreen State College. I built this with React and Material-UI.
+                </Typography>
+                <Box display="block" mt={2}>
+                    <Button variant="contained" color="primary">
+                        Learn More
+                    </Button>
+                </Box>
+            </Box>
+        );
+    }
+
+    //Feature Cards Section
+    function FeatureCards(){
+        return(
+            <Container className="card-container">
+                <Grid container spacing={4} justifyContent="center">
+                    <Grid item xs={12} sm={6} md={4}>
+                        <Card>
+                            <CardContent>
+                                <Typography variant="h2" component="div">
+                                    Feature 1
+                                </Typography>
+                                <Typography variant="body2" color="textSecondary">
+                                    This is a feature1 description. You can add more text here.
+                                </Typography>
+                            </CardContent>
+                            <CardActions>
+                                <Button size="small" color="primary">
+                                    Learn More
+                                </Button>
+                            </CardActions>
+                        </Card>
+                </Grid>
+
+                <Grid item xs={12} sm={6} md={4}>
+                    <Card>
+                        <CardContent>
+                            <Typography variant="h2" component="div">
+                                Feature 2
+                            </Typography>
+                            <Typography variant="body2" color="textSecondary">
+                                This is a feature2 description. You can add more text here.
+                            </Typography>
+                        </CardContent>
+                        <CardActions>
+                            <Button size="small" color="primary">
+                                Learn More
+                            </Button>
+                        </CardActions>
+                    </Card>
+                </Grid>
+                
+                <Grid item xs={12} sm={6} md={4}>
+                    <Card>
+                        <CardContent>
+                            <Typography variant="h2" component="div">
+                                Feature 3
+                            </Typography>
+                            <Typography variant="body2" color="textSecondary">
+                                This is a feature3 description. You can add more text here.
+                            </Typography>
+                        </CardContent>
+                        <CardActions>
+                            <Button size="small" color="primary">
+                                Learn More
+                            </Button>
+                        </CardActions>
+                    </Card>
+                </Grid>
+            </Grid>
+            </Container>
+        );
+    }
+
+    //Contact Form Section
+    function ContactUs() {
+        return (
+            <Box className="contact-section" textAlign="center">
+                <Typography variant="h2" gutterBottom>
+                    Contact Me
+                </Typography>
+                <Typography variant="body1" color="textSecondary" gutterBottom>
+                    Please fill out the form below to contact me. 
+                </Typography>
+                <Box display="block" mt={2}>
+                    <Button variant="contained" color="primary" size="large">
+                        Contact Me
+                    </Button>
+                </Box>
+            </Box>
+        );
+    }
+
+    //Footer Section
+    function Footer() {
+        return (
+            <Box textAlign="center" mt={4} py={2} bgcolor="primary.main" color="white">
+                <Typography variant="nav1"> &copy; 2025 My Porfolio Homepage <br /></Typography>
+                <Typography variant="body2">Built with React and Material-UI. All rights reserved.
+                </Typography>
+            </Box>
+        );
+    }
+
+    //Main App Component
+    function App() {
+        return (
+                <React.Fragment>
+                    <CssBaseline />
+                    <Navbar />
+                    <HeroSection />
+                    <FeatureCards />
+                    <ContactUs />
+                    <Footer />
+                </React.Fragment>
+        );
+    }
+
+    //Render the React App
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
