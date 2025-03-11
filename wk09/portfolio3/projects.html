@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Landing Page</title>
+
+    <!-- React and ReactDOM -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Material-UI -->
+    <script src="https://unpkg.com/@mui/material@5.15.10/umd/material-ui.production.min.js"></script>
+
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/default.css">
+
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- Call to load Global NavBar-->
+
+    <script src="header/nav.js" type="text/babel"></script>
+
+    <script type="text/babel">
+        const { AppBar, Toolbar, Typography, Button, Box, Container, Grid, Card, CardContent, CardMedia } = MaterialUI;
+
+        // Product Card Component
+        function ProductCard({ name, description, price, image, link }) {
+            return (
+                <Card class="cardSpecs">
+                    <CardMedia
+                        component="img"
+                        height="200"
+                        image={image}
+                        alt={name}
+                    />
+                    <CardContent>
+                        <Typography variant="h2" component="div">
+                            {name}
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary">
+                            {description}
+                        </Typography>
+                        <Typography variant="listprice" color="primary">
+                            ${price}
+                        </Typography>
+                    </CardContent>
+                    <Button size="small" color="primary" href={link}>Check it Out!</Button>
+                </Card>
+            );
+        }
+
+        // Product Page Component
+        function ProductPage() {
+            const products = [
+                { name: "GameDex", description: "Full Stack Project", price: "0.00/ Open Sourced", image: "img/game.png", link: "http://nad.csevg.com/wk09/portfolio3/GameDex.html" },
+                { name: "Impossible Hangman", description: "Data Structure Project", price: "0.00/ Open Sourced", image: "img/hangman.png", link: "http://nad.csevg.com/wk09/portfolio3/ImpossibleHangman.html" },
+                { name: "Object Dectection", description: "Computer Vision Project", price: "0.00/ Open Sourced", image: "img/AI.jpg", link: "http://nad.csevg.com/wk09/portfolio3/ObjectDectection.html" },
+            ];
+
+            return (
+                <Box className="product-page">
+                    <Container>
+                        <Box className="header-title">
+                            <Typography variant="h1">My Projects</Typography>
+                        </Box>
+                        <Grid container spacing={4}>
+                            {products.map((product, index) => (
+                                <Grid item xs={12} sm={6} md={4} key={index}>
+                                    <ProductCard 
+                                        name={product.name} 
+                                        description={product.description} 
+                                        price={product.price} 
+                                        image={product.image} 
+                                        link={product.link}
+                                    />
+                                </Grid>
+                            ))}
+                        </Grid>
+                    </Container>
+                </Box>
+            );
+        }
+
+        // Footer Component
+        function Footer() {
+            return (
+                <Box className="footer" textAlign="center" py={2} bgcolor="primary.main" color="white">
+                    <Typography variant="nav1">&copy; My Portfolio <br /></Typography>
+                    <Typography variant="nav1">All Rights Reserved.</Typography>
+                </Box>
+            );
+        }
+
+        // Main App Component
+        function App() {
+            return (
+                <React.Fragment>
+                    <Navbar />
+                    <ProductPage />
+                    <Footer />
+                </React.Fragment>
+            );
+        }
+
+        // Render the React app
+        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    </script>
+
+</body>
+</html>
