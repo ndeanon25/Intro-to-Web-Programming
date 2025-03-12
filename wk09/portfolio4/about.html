@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+
+    <!-- React and ReactDOM -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Material-UI -->
+    <script src="https://unpkg.com/@mui/material@5.15.10/umd/material-ui.production.min.js"></script>
+
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/default.css">
+
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <!--Call to load global nav-->
+    <script src="header/nav.js" type="text/babel"></script>
+
+    <script type="text/babel">
+        const { AppBar, Toolbar, Typography, Box, Container, Grid, CardMedia } = MaterialUI;
+
+        function AboutMe() {
+            return (
+                <Container>
+                    { /* Shop Image */}
+                    <Box sx={{ my: 4}}>
+                        <CardMedia
+                            component="img"
+                            image="img/Me.jpeg"
+                            alt="Photo of Me, Nathan"
+                            sx={{ width:"100%", height:"1400px" , borderRadius: "8px" }}
+                            />
+                    </Box>
+
+                    { /* About Me */}
+                    <Box sx={{ my: 4 }}>
+                        <Typography variant="h1" gutterBottom>
+                            About Me
+                        </Typography>
+                        <Typography variant="body1" paragraph>
+                            Hello! My name is Nathan and I am a senior at The Evergreen State College.
+                            I am studying Computer Science and I am excited to graduate in June 2025.
+                        </Typography>
+                        <Typography variant="body1" paragraph>
+                            I am a full-stack developer with experience in HTML, CSS, JavaScript, React, Node.js, and Express.
+                            I am also familiar with Python, Java, and C++.
+                        </Typography>
+                    </Box>
+
+                    { /* Google Maps Embed */}
+                    <Box sx={{ my:4 }}>
+                        <Typography variant="h2" gutterBottom>
+                            Where to Find Me
+                        </Typography>
+                        <iframe
+                            title="Google Maps"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2717.3259493723513!2d-122.976569823637!3d47.07307137114589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54919e31157895e5%3A0x93b4e5ffe6bba44e!2sThe%20Evergreen%20State%20College!5e0!3m2!1sen!2sus!4v1741809866247!5m2!1sen!2sus"
+                            width="100%"
+                            height="450"
+                            style={{ border: 0 }}
+                            allowfullscreen=""
+                            loading="lazy"
+                        ></iframe>
+                    </Box>
+                </Container>
+                
+            );
+        }
+
+        // Footer Component
+        function Footer() {
+            return (
+                <Box className="footer" textAlign="center" py={2} bgcolor="primary.main" color="white">
+                    <Typography variant="nav1">&copy; My Portfolio <br /></Typography>
+                    <Typography variant="nav1">All Rights Reserved.</Typography>
+                </Box>
+            );
+        }
+
+        // About Me Component
+        function App() {
+            return (
+                <React.Fragment>
+                    <Navbar />
+                    <AboutMe />
+                    <Footer />
+                </React.Fragment>
+            );
+        }
+
+        // Render the React app
+        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+
+    </script>
+
+
+</body>
+</html>
